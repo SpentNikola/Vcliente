@@ -30,7 +30,6 @@ def message():
         if text == "!back" or text == " ":
             message()
 message()
-#vk.utils.resolveScreenName(acsess_token = "13a24bbb2cb0fb85304e17c573f6da883251e231a6b590d5e7757c7401d4f583429149bfb0022547451a6", screen_name = 'pkovalenko2014')
 
 
 
