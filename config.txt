@@ -1,1 +1,4 @@
-532d2e954db61906a28f5132a644431852e57a26a68af362b9216d8cba541114e02a23a9e1823a080e243
+Вставьте VK acsess token сюда(без кавычек)
+Paste your VK acsess token here(no quotes)
+
+https://vkhost.github.io/
