@@ -20,8 +20,6 @@ def message():
         if name == (k+1):
             id = data['items'][k]['id']
             print("Диалог с", data['items'][k]['first_name'], data['items'][k]['last_name'], ". Пиши '!back' чтобы вернуться")
-
-
     text = input()
     while text !="!back" or text != " ":
         if text !="!back" or text != " ":
@@ -30,9 +28,4 @@ def message():
         if text == "!back" or text == " ":
             message()
 message()
-
-
-
-
-
 exit = input()
