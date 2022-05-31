@@ -6,9 +6,8 @@ session = api.VkApi(token=TOKEN)
 vk = session.get_api()
 
 def message():
-    data = vk.friends.get(order = 'hints', count = 5, fields = 'nickname')
-    i = 0    
-    for i in range(5):
+    data = vk.friends.get(order = 'hints', count = 10,  fields = 'nickname')    
+    for i in range(10):
         numb = i + 1
         print('[' + str(numb) + ']', data['items'][i]['first_name'], data['items'][i]['last_name'])
     name = int(input())
@@ -17,11 +16,13 @@ def message():
             id = data['items'][k]['id']
             print("Диалог с", data['items'][k]['first_name'], data['items'][k]['last_name'], ". Пиши '!back' чтобы вернуться")
     text = input()
-    while text !="!back" or text != " ":
-        if text !="!back" or text != " ":
+    if text == "!back" or text == " ":
+            message()
+    while text !="!back" or text != "":
+        if text !="!back" or text != "":
             vk.messages.send(user_id = id, random_id = 0, message = text)
             text = input()
         if text == "!back" or text == " ":
             message()
 message()
-exit = input()
+exit = input('crush')
