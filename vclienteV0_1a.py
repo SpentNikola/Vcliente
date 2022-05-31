@@ -17,7 +17,7 @@ def message():
             print("Диалог с", data['items'][k]['first_name'], data['items'][k]['last_name'], ". Пиши '!back' чтобы вернуться")
     text = input()
     while True:
-        if text !="!back" or text != "":
+        if text !="!back" and text != "":
             vk.messages.send(user_id = id, random_id = 0, message = text)
             text = input()
        else:
