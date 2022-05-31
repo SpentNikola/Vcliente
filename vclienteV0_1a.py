@@ -1,13 +1,9 @@
-import time
 import vk_api  as api
-import os
 
 file = open('config228.txt', 'r')
 TOKEN = file.read()
 session = api.VkApi(token=TOKEN)
 vk = session.get_api()
-count = 0
-count1 = 1
 
 def message():
     data = vk.friends.get(order = 'hints', count = 5, fields = 'nickname')
