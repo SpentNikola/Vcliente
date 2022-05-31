@@ -11,7 +11,7 @@ def message():
         numb = i + 1
         print('[' + str(numb) + ']', data['items'][i]['first_name'], data['items'][i]['last_name'])
     name = int(input())
-    for k in range(5):
+    for k in range(10):
         if name == (k+1):
             id = data['items'][k]['id']
             print("Диалог с", data['items'][k]['first_name'], data['items'][k]['last_name'], ". Пиши '!back' чтобы вернуться")
