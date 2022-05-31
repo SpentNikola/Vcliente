@@ -1,6 +1,6 @@
 import vk_api  as api
 
-file = open('config228.txt', 'r')
+file = open('config.txt', 'r')
 TOKEN = file.read()
 session = api.VkApi(token=TOKEN)
 vk = session.get_api()
