@@ -1,4 +1,0 @@
-Вставьте VK acsess token сюда(без кавычек)
-Paste your VK acsess token here(no quotes)
-
-https://vkhost.github.io/
