@@ -94,7 +94,7 @@ def message():
     set_order = f.readline()
     old1 = str(set_fr)
     old2 = str(set_mes)
-    unread = ''
+    unread = []
     i = 0
     old3 = set_order
     f.close()
@@ -103,29 +103,30 @@ def message():
     read = vk.messages.getConversations(filter='unread')
     # получение непрочитанных сообщений
     read = vk.messages.getConversations(filter='unread')
-    for i in range(read['unread_count']):
+    print('read', read)
+    for i in range(read['count']):
         if read['items'][i]['conversation']['peer']['type'] == 'user':
-            try:
-                if read['items'][i]['conversation']['unread_count'] != 0:
-                    unread_id = str(read['items'][i]['conversation']['peer']['id'])
-                    unread = unread + unread_id
-            except KeyError:
-                i += 1
+            unread_id = str(read['items'][i]['conversation']['peer']['id'])
+            unread.append(unread_id)
+    # print(unread)
     # вывод списка друзей
     for i in range(set_fr):
-        numb = i + 1
+        numb = str(i + 1)
+        naming = '[' + numb + ']', str(data['items'][i]['first_name']), str(data['items'][i]['last_name'])
         if str(data['items'][i]['id']) in unread and int(data['items'][i]['online']) == 1:
-            print('[' + str(numb) + ']', data['items'][i]['first_name'], data['items'][i]['last_name'] + '⭕️️🟢')
-        if str(data['items'][i]['id']) in unread:
-            print('[' + str(numb) + ']', data['items'][i]['first_name'], data['items'][i]['last_name'] + '⭕️️')
-        if int(data['items'][i]['online']) == 1:
-            print('[' + str(numb) + ']', data['items'][i]['first_name'], data['items'][i]['last_name'] + '🟢')
+            print(*naming, ' ⭕️️🟢')
+        elif str(data['items'][i]['id']) in unread:
+            print(*naming, ' ⭕️️')
+        elif int(data['items'][i]['online']) == 1:
+            print(*naming,  ' 🟢')
         else:
-            print('[' + str(numb) + ']', data['items'][i]['first_name'], data['items'][i]['last_name'])
+            print('[' + numb + ']', data['items'][i]['first_name'], data['items'][i]['last_name'])
     name = input()
     try:
         name = int(name)
     except ValueError:
+        print('Ошибка ввода, вы будуте перенаправлены в главное меню')
+        time.sleep(1.5)
         menu()
     data = vk.friends.get(order=set_order, count=set_fr, fields='nickname', name_case='ins')
     print(data['items'][int(name) - 1]['id'])
@@ -233,3 +234,4 @@ def delay():
 
 menu()
 input()
+
